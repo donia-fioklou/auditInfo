@@ -7,3 +7,4 @@ from .SousArticle import SousArticle
 from .SousChapitre import SousChapitre
 from .Chapitre import Chapitre
 from .Mesure import Mesure
+from .ResponseSousChapitre import ReponseSousChapitre

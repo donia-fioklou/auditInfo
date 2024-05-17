@@ -8,7 +8,7 @@ class Article(models.Model):
     nom = models.TextField()
     conformite = models.FloatField(default=0)  # pourcentage de conformite
     veracite = models.IntegerField(default=0)  # nombre de veracite
-    status = models.IntegerField()
+    #status = models.IntegerField()
 
     class Meta:
         verbose_name = 'Article'
