@@ -1,8 +1,21 @@
 import Footer from "../../components/Footer.jsx";
 import Header from "../../components/Header.jsx";
 import MenuAside from "../../components/MenuAside.jsx";
+import { useEffect, useState } from "react";
+import { API_URL } from "../../services/constants.js";
 
 const Objectif = () => {
+  const [chapitres,setChapitres] = useState([])
+  useEffect(() => {
+    fetch(`${API_URL}/auditapp/chapitre`)
+    .then(response => response.json())
+    .then(data => {
+      console.log("data",data);
+      setChapitres(data)
+    })
+    
+  },[])
+  console.log("chapitre",chapitres);
   return (
     <div
       id="kt_app_body"
@@ -22,7 +35,7 @@ const Objectif = () => {
           id="kt_app_page"
         >
           {/*begin::Header*/}
-          <Header activeMenu={3} />
+          <Header activeMenu={2} />
           {/*end::Header*/}
           {/*begin::Wrapper*/}
           <div
@@ -31,8 +44,8 @@ const Objectif = () => {
           >
             {/*begin::Wrapper container*/}
             <div className="app-container container-fluid d-flex">
-              {/*begin::Sidebar*/}
-              <MenuAside menu={3} item={1} />
+              {/*begin::Sidebar
+              <MenuAside menu={2} item={1} />*/}
               {/*end::Sidebar*/}
               {/*begin::Main*/}
               <div
@@ -98,24 +111,14 @@ const Objectif = () => {
                     <div className="row gy-5 g-xl-10">
                       <div className="card mb-5 mb-xl-10">
                         {/*begin::Card header*/}
-                        <div
-                          className="card-header border-0 cursor-pointer"
-                          role="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#kt_account_notifications"
-                          aria-expanded="true"
-                          aria-controls="kt_account_notifications"
-                        >
+                        <div className="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_notifications" aria-expanded="true" aria-controls="kt_account_notifications">
                           <div className="card-title m-0">
-                            <h3 className="fw-bold m-0">Notifications</h3>
+                            <h3 className="fw-bold m-0">Objectifs</h3>
                           </div>
                         </div>
                         {/*begin::Card header*/}
                         {/*begin::Content*/}
-                        <div
-                          id="kt_account_settings_notifications"
-                          className="collapse show"
-                        >
+                        <div id="kt_account_settings_notifications" className="collapse show">
                           {/*begin::Form*/}
                           <form className="form">
                             {/*begin::Card body*/}
@@ -125,196 +128,16 @@ const Objectif = () => {
                                 <table className="table table-row-dashed border-gray-300 align-middle gy-6">
                                   <tbody className="fs-6 fw-semibold">
                                     {/*begin::Table row*/}
-                                    <tr>
-                                      <td className="min-w-250px fs-4 fw-bold">
-                                        Notifications
-                                      </td>
-                                      <td className="w-125px">
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="kt_settings_notification_email"
-                                            defaultChecked="checked"
-                                            data-kt-check="true"
-                                            data-kt-check-target="[data-kt-settings-notification=email]"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="kt_settings_notification_email"
-                                          >
-                                            Email
-                                          </label>
-                                        </div>
-                                      </td>
-                                      <td className="w-125px">
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="kt_settings_notification_phone"
-                                            defaultChecked="checked"
-                                            data-kt-check="true"
-                                            data-kt-check-target="[data-kt-settings-notification=phone]"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="kt_settings_notification_phone"
-                                          >
-                                            Phone
-                                          </label>
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    {/*begin::Table row*/}
-                                    {/*begin::Table row*/}
-                                    <tr>
-                                      <td>Billing Updates</td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue={1}
-                                            id="billing1"
-                                            defaultChecked="checked"
-                                            data-kt-settings-notification="email"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="billing1"
-                                          />
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="billing2"
-                                            defaultChecked="checked"
-                                            data-kt-settings-notification="phone"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="billing2"
-                                          />
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    {/*begin::Table row*/}
-                                    {/*begin::Table row*/}
-                                    <tr>
-                                      <td>New Team Members</td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="team1"
-                                            defaultChecked="checked"
-                                            data-kt-settings-notification="email"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="team1"
-                                          />
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="team2"
-                                            data-kt-settings-notification="phone"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="team2"
-                                          />
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    {/*begin::Table row*/}
-                                    {/*begin::Table row*/}
-                                    <tr>
-                                      <td>Completed Projects</td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="project1"
-                                            data-kt-settings-notification="email"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="project1"
-                                          />
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="project2"
-                                            defaultChecked="checked"
-                                            data-kt-settings-notification="phone"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="project2"
-                                          />
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    {/*begin::Table row*/}
-                                    {/*begin::Table row*/}
-                                    <tr>
-                                      <td className="border-bottom-0">
-                                        Newsletters
-                                      </td>
-                                      <td className="border-bottom-0">
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="newsletter1"
-                                            data-kt-settings-notification="email"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="newsletter1"
-                                          />
-                                        </div>
-                                      </td>
-                                      <td className="border-bottom-0">
-                                        <div className="form-check form-check-custom form-check-solid">
-                                          <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="newsletter2"
-                                            data-kt-settings-notification="phone"
-                                          />
-                                          <label
-                                            className="form-check-label ps-2"
-                                            htmlFor="newsletter2"
-                                          />
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    {/*begin::Table row*/}
+                                        {chapitres.map((chapitre, index) =>(<>
+                                          <tr>
+                                          <td className="min-w-250px fs-4 fw-bold">{chapitre.nom}</td>
+                                          <td key={index}>
+                                                <div className="form-check form-check-custom form-check-solid">
+                                                  <label className="form-check-label ps-2" htmlFor='team1'>{chapitre.NoteCible}</label>
+                                                </div>
+                                              </td>
+                                        </tr>
+                                        </>))}
                                   </tbody>
                                 </table>
                               </div>
@@ -322,14 +145,7 @@ const Objectif = () => {
                             </div>
                             {/*end::Card body*/}
                             {/*begin::Card footer*/}
-                            <div className="card-footer d-flex justify-content-end py-6 px-9">
-                              <button className="btn btn-light btn-active-light-primary me-2">
-                                Discard
-                              </button>
-                              <button className="btn btn-primary px-6">
-                                Save Changes
-                              </button>
-                            </div>
+                            
                             {/*end::Card footer*/}
                           </form>
                           {/*end::Form*/}

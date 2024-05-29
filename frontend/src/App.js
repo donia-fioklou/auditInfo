@@ -9,7 +9,7 @@ function App() {
     <Router basename="/">
       <Routes>
         <Route exact path="" element={<Home />}></Route>
-        <Route exact path="objectif/" element={<Objectif/>}></Route>
+        <Route exact path="objectif" element={<Objectif/>}></Route>
         <Route exact path="annexe/question/new" element={<AnnexeQuestion />}></Route>
         <Route exact path="annexe/resultat" element={<AnnexeResultat />}></Route>
       </Routes>

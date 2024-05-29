@@ -18,9 +18,9 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-import { Radar } from 'react-chartjs-2';
 
-const RadarChart = (labels,notes)=>{
+
+const RadarChart = ({labels,notes})=>{
     var data = {
         labels: labels||[],
         datasets: [

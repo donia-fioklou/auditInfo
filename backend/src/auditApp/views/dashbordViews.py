@@ -29,7 +29,7 @@ class ChapitreStatsActuel(APIView):
                 reponse_sous_chap = ReponseSousChapitre.objects.filter(sous_chapitre=sous_chapitre).last()
                 if reponse_sous_chap :
                     note_sous_chap += reponse_sous_chap.point
-            moy_chap = note_sous_chap/nbre_sous_chap
+            moy_chap = round((note_sous_chap/nbre_sous_chap),2)
             dic_stats_actuel['moy_chap'].append(moy_chap)
 
         return Response(dic_stats_actuel)
