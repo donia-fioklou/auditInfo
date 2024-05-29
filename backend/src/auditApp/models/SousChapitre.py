@@ -5,7 +5,8 @@ from auditApp.models.Annexe import Annexe
 
 
 class SousChapitre(models.Model):
-    chapitre = models.ForeignKey(Chapitre, on_delete=models.CASCADE)
+    chapitre = models.ForeignKey(Chapitre, on_delete=models.CASCADE,related_name='chapitre')
+    numero = models.TextField(default='')
     nom = models.TextField()
     #conformite = models.FloatField(default=0)  # pourcentage de conformite
     #veracite = models.IntegerField(default=0)  # nombre de veracite

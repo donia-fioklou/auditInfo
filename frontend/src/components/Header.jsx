@@ -1,4 +1,13 @@
-const Header = () => {
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+const Header = ({activeMenu}) => {
+    const navigate = useNavigate();
+    //const [activeMenu, setActiveMenu] = useState("");
+    const navigation = (destination) => {
+        //setActiveMenu(destination)
+        navigate("/" + destination);
+    }
+   
     return (
         <>
             {/*begin::Header*/}
@@ -27,29 +36,29 @@ const Header = () => {
                                     {/*begin::Menu*/}
                                     <div className="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 menu-state-gray-900 menu-arrow-gray-500 fw-semibold fw-semibold fs-6 align-items-stretch my-5 my-lg-0 px-2 px-lg-0 noprint" id="#kt_app_header_menu" data-kt-menu="true">
                                         {/*begin:Menu item*/}
-                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-250,0" className={`menu-item menu-here-bg here show menu-lg-down-accordion me-0 me-lg-2`}>
+                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-250,0" className={`menu-item menu-here-bg ${activeMenu == 1 ? "here show" : ""} menu-lg-down-accordion me-0 me-lg-2`}>
                                             <span className="menu-link">
-                                                <span className="menu-title">Home</span>
+                                                <span className="menu-title">Tableau de bord</span>
                                                 <span className="menu-arrow d-lg-none"></span>
                                             </span>
                                         </div>
 
-                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-400,0" className={`menu-item menu-here-bg  menu-lg-down-accordion me-0 me-lg-2`}>
+                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-400,0" className={`menu-item menu-here-bg ${activeMenu == 2 ? "here show" : ""} menu-lg-down-accordion me-0 me-lg-2`}>
                                             <span className="menu-link">
-                                                <span className="menu-title">Pages</span>
+                                                <span className="menu-title">Objectifs</span>
                                                 <span className="menu-arrow d-lg-none"></span>
                                             </span>
                                         </div>
-                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="12,0" className={`menu-item menu-here-bg  menu-lg-down-accordion me-0 me-lg-2`}>
+                                        <div onClick={() => navigation("annexe/question/new")} data-kt-menu-placement="bottom-start" data-kt-menu-offset="12,0" className={`menu-item menu-here-bg ${activeMenu == 3 ? "here show" : ""} menu-lg-down-accordion me-0 me-lg-2`}>
                                             <span className="menu-link">
-                                                <span className="menu-title">Apps</span>
+                                                <span className="menu-title">Annexe A</span>
                                                 <span className="menu-arrow d-lg-none"></span>
                                             </span>
                                         </div>
 
-                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-400,0" className={`menu-item menu-here-bg  menu-lg-down-accordion me-0 me-lg-2`}>
+                                        <div data-kt-menu-placement="bottom-start" data-kt-menu-offset="-400,0" className={`menu-item menu-here-bg ${activeMenu === 4 ? "here show" : ""} menu-lg-down-accordion me-0 me-lg-2`}>
                                             <span className="menu-link">
-                                                <span className="menu-title">Help</span>
+                                                <span className="menu-title">Exigences</span>
                                                 <span className="menu-arrow d-lg-none"></span>
                                             </span>
                                         </div>

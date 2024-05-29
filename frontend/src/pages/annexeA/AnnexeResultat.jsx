@@ -1,8 +1,9 @@
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer.jsx";
 import Header from "../../components/Header.jsx";
-import MenuAside from "../../components/MenuAside";
+import MenuAside from "../../components/MenuAside.jsx";
+import FormQuestion from "../../components/FormQuestion.jsx";
 
-const Home = () => {
+const AnnexeResultat = () => {
   return (
     <div id="kt_app_body" data-kt-app-header-stacked="true" data-kt-app-header-primary-enabled="true" data-kt-app-header-secondary-enabled="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="false" data-kt-app-toolbar-enabled="true" className="app-default">
 
@@ -11,7 +12,7 @@ const Home = () => {
         {/*begin::Page*/}
         <div className="app-page flex-column flex-column-fluid" id="kt_app_page">
           {/*begin::Header*/}
-          <Header activeMenu={1} />
+          <Header activeMenu={3} />
           {/*end::Header*/}
           {/*begin::Wrapper*/}
           <div
@@ -21,7 +22,7 @@ const Home = () => {
             {/*begin::Wrapper container*/}
             <div className="app-container container-fluid d-flex">
               {/*begin::Sidebar*/}
-              <MenuAside />
+              <MenuAside menu={3} item={2} />
               {/*end::Sidebar*/}
               {/*begin::Main*/}
               <div className="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -80,6 +81,7 @@ const Home = () => {
                   <div id="kt_app_content" className="app-content">
                     {/*begin::Row*/}
                     <div className="row gy-5 g-xl-10">
+                      <FormQuestion/>
 
                     </div>
                     {/*end::Row*/}
@@ -103,4 +105,4 @@ const Home = () => {
 
   )
 }
-export default Home;
+export default AnnexeResultat;

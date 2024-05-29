@@ -6,6 +6,7 @@ from auditApp.models.Annexe import Annexe
 
 class Chapitre(models.Model):
     annexeA = models.ForeignKey(Annexe, on_delete=models.CASCADE)
+    numero = models.TextField(default='')
     nom = models.TextField()
     NoteCible = models.IntegerField(default=0)
     #conformite = models.FloatField(default=0)  # pourcentage de conformite
